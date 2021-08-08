@@ -1,11 +1,14 @@
 <?php
 //core
-include "../../connect.php";
-
-function dbcon()
+$conn;
+function dbcon($host, $user, $pass, $db)
 {
 	global $conn;
-	$conn = $conn;
+	$user = $user;
+	$pass = $pass;
+	$host = $host;
+	$db = $db;
+	$conn = mysqli_connect($host, $user, $pass, $db) or die("cannot connect to the database");
 }
 
 function host()
@@ -27,3 +30,7 @@ function gstr()
 	parse_str($qstr, $dstr);
 	return $dstr;
 }
+
+
+
+// 	$conn = mysqli_connect($host, $user, $pass, $db) or die("cannot connect to the database");
