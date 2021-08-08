@@ -1,30 +1,29 @@
 <?php
 //core
-$conn;
-function dbcon(){
+include "../../connect.php";
+
+function dbcon()
+{
 	global $conn;
-	$user = "root";
-	$pass = "";
-	$host = "localhost";
-	$db = "cman";
-	$conn = mysqli_connect($host,$user,$pass,$db) or die("cannot connect to the database");
+	$conn = $conn;
 }
 
-function host(){
-	$h = "http://".$_SERVER['HTTP_HOST']."/bankdb/";
+function host()
+{
+	$h = "http://" . $_SERVER['HTTP_HOST'] . "/bankdb/";
 	return $h;
 }
 
-function hRoot(){
-	$url = $_SERVER['DOCUMENT_ROOT']."/bankdb/";
+function hRoot()
+{
+	$url = $_SERVER['DOCUMENT_ROOT'] . "/bankdb/";
 	return $url;
 }
 
 //parse string
-function gstr(){
-    $qstr = $_SERVER['QUERY_STRING'];
-    parse_str($qstr,$dstr);
-    return $dstr;
+function gstr()
+{
+	$qstr = $_SERVER['QUERY_STRING'];
+	parse_str($qstr, $dstr);
+	return $dstr;
 }
-
-?>
